@@ -103,10 +103,7 @@ class ServerRecipe(BaseRecipe):
         sys.path.append(self.odoo_dir)
         sys.path.extend([egg.location for egg in self.ws])
 
-        try:
-            from odoo.tools.config import configmanager
-        except ImportError:
-            from openerp.tools.config import configmanager
+        from odoo.tools.config import configmanager
 
         configmanager(self.config_path).save()
 
